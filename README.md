@@ -5,5 +5,5 @@
 - If you want to use additional local data (e.g CSVs, JSON, etc), drop the files in the data folder (this folder is bind-mounted to all containers at /data inside the container)
 
 ### Tips & Tricks
-- If you don't care about using Spark in "clustered" mode and prefer to just use  single-local-node Spark, simply remove the '.master("spark://spark:7077")' from SparkSession.builder options (omitting a .master() call defaults to single-local-node).  Unless you are actually running the Spark cluster across multiple physical or virtual servers, single-local-node Spark will execute faster than clustered mode.
+- If you don't care about using Spark in "clustered" mode and prefer to just use  single-local-node Spark, simply remove the '.master("spark://spark:7077")' from SparkSession.builder options (omitting a .master() call defaults to single-local-node).  Unless you are actually running the Spark cluster across multiple physical or virtual servers and on large, distributed datasets, single-local-node Spark will execute faster than clustered mode.
 - The number of spark workers can be scaled up or down with `docker-compose up -d --scale spark-worker=<n_workers>` e.g. `docker-compose up -d --scale spark-worker=3`
